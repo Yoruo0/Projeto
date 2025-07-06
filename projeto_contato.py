@@ -19,19 +19,25 @@ def visualizar_contatos():
 
 def editar_contato():
     indice_ajustado = int(indice_contato) - 1
-    novo_nome = input("Digite o novo nome do contato: ")
-    novo_telefone = input("Dige o novo telefone do contato: ")
-    novo_email = input("Digite o novo email do contato: ")
-    contatos[indice_ajustado]["nome"] = novo_nome
-    contatos[indice_ajustado]["telefone"] = novo_telefone
-    contatos[indice_ajustado]["email"] = novo_email
-    print("Contato atualizado com sucesso")
+    if 0 <= indice_ajustado < len(contatos):
+        novo_nome = input("Digite o novo nome do contato: ")
+        novo_telefone = input("Dige o novo telefone do contato: ")
+        novo_email = input("Digite o novo email do contato: ")
+        contatos[indice_ajustado]["nome"] = novo_nome
+        contatos[indice_ajustado]["telefone"] = novo_telefone
+        contatos[indice_ajustado]["email"] = novo_email
+        print("Contato atualizado com sucesso")
+    else:
+        print("Índice de contato inválido.")
     return
 
 def favoritar_contato():
     indice_ajustado = int(indice_contato) - 1
-    contatos[indice_ajustado]["favorito"] = True
-    print(f"Contato {indice_contato} adicionado aos favoritos.")
+    if 0 <= indice_ajustado < len(contatos):
+        contatos[indice_ajustado]["favorito"] = True
+        print(f"Contato {indice_contato} adicionado aos favoritos.")
+    else:
+        print("Índice de contato inválido.")
     return
 
 def visualizar_favoritos():
